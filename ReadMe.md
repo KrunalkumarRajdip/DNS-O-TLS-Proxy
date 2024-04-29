@@ -1,4 +1,4 @@
-# DNS Proxy with DNS-over-TLS(N26-SRE Challange)
+# DNS Proxy with DNS-over-TLS
 
 ## Introduction
 
