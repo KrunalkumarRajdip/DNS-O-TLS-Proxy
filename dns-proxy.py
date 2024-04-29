@@ -9,9 +9,6 @@ import certifi
 DNS_TLS_SERVER = '1.1.1.1'
 DNS_TLS_PORT = 853
 
-# Paths to the SSL certificate and private key files
-# SSL_CERT_FILE = '/Users/tkrajdip/Documents/Interviews/N26/N26_SRE_KRajdip/server.crt'
-# SSL_KEY_FILE = '/Users/tkrajdip/Documents/Interviews/N26/N26_SRE_KRajdip/server.key'
 
 # Create a log directory if it doesn't exist
 LOG_DIR = 'log'
