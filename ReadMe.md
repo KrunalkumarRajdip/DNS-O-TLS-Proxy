@@ -12,7 +12,7 @@ This project implements a DNS proxy server using Python, which supports DNS-over
 - `Dockerfile`: Dockerfile to build a Docker image for running the DNS proxy server in a container.
 - `testDNSOTLSs.py`: Contains unit tests to verify the functionality of the DNS proxy server.
 
-## Approach to solve the SRE challange
+## Approach
 
 1. Implemented the DNS proxy server in `dns-proxy.py`.
    - Used SSL, Socket, Threading, Logging, OS and Certifi Modules
@@ -28,21 +28,6 @@ This project implements a DNS proxy server using Python, which supports DNS-over
    - Only to be used in local not anywhere else.
 4. Modified the `client.py` script to simulate DNS queries and test the DNS proxy server.
    - Tried creating a client script but was able to validate workflow using DIG command.
-
-## Troubleshooting
-
-- **Issue**: Certificate verification failed during DNS-over-TLS connection.
-   -  Tried Stubby
-   -  Tried creating OpenSSL
-   -  Tried importing multiple Origin and root certs from cloudflare but the servers auth was not getting through.
-  
-  **Resolution**: Loaded the CA certificates using the `certifi` module in the SSL context.
-
-- **Issue**: DNS queries were timing out.
-   - Netwroking issues in Docker containers
-   - Port issues in local
-   - Binding issues and IP conflicts of hard coded IPs 
-  **Resolution**: Ensured that the DNS proxy server was correctly forwarding queries to the DNS-over-TLS server.
 
 ## Testing the Flow
 
@@ -116,8 +101,6 @@ By using these options with the dig command, we can verify that DNS queries are 
 3. Utilize container orchestration tools like Kubernetes for deployment and scaling.
 4. Integrate with a centralized logging and monitoring system for better visibility and control.
 
-### Using it in a K8s cluster is an interesting topic and lets discuss this face to face. 
-
 ## Further Improvements
 
 1. **Performance Optimization**: Optimize the DNS proxy server for better throughput and response times, Might reengineer in Go. 
@@ -126,9 +109,3 @@ By using these options with the dig command, we can verify that DNS queries are 
 4. **Health Checks**: Integrate health checks to ensure the availability and reliability of the DNS proxy server, Readiness and liveness probes.
 
 ---
-
-### Answers to Additional Questions:
-
-1. **Security Concerns**: Security concerns include certificate management, access control, data encryption, and logging/monitoring.
-2. **Integration in Microservices Architecture**: Integrate the DNS proxy server as a microservice using containerization and orchestration tools like Kubernetes.
-3. **Further Improvements**: Consider optimizations for performance, support for DNSSEC, DNS caching, and implementation of health checks.
